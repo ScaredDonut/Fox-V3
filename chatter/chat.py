@@ -15,6 +15,8 @@ from redbot.core.commands import Cog
 from redbot.core.data_manager import cog_data_path
 from redbot.core.utils.predicates import MessagePredicate
 
+from chatter.trainers import CustomUbuntu
+
 log = logging.getLogger("red.fox_v3.chatter")
 
 
@@ -159,7 +161,7 @@ class Chatter(Cog):
         return out
 
     def _train_ubuntu(self):
-        trainer = UbuntuCorpusTrainer(
+        trainer = CustomUbuntu(
             self.chatbot, ubuntu_corpus_data_directory=cog_data_path(self) / "ubuntu_data"
         )
         trainer.train()
